@@ -30,16 +30,15 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         
-# node environment setup 
-   - name: Setup Node.js environment
-    uses: actions/setup-node@v1.4.2
-    with:
-      version: 12
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
+      with:
+          version: 12
       
       # git action setup
-      - name: GitHub Action for Yarn
-        uses: Borales/actions-yarn@v2.3.0
-        with:
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.3.0
+      with:
     # Yarn command
         cmd: 
           install
@@ -48,8 +47,8 @@ jobs:
       run: yarn build
       
     # surge action setup
-      - name: installing surge 
-        run: npm installing -g surge
+    - name: installing surge 
+      run: npm installing -g surge
 
-      - name: deploying on surge
-        run: surge ./build http://first-todo.surge.sh/ --token ${{secrets.SURGE_TOKEM}}
+    - name: deploying on surge
+      run: surge ./build http://first-todo.surge.sh/ --token ${{secrets.SURGE_TOKEM}}
